@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+	<title>ByteTrash</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="description" content="TechTrash, lucre com seu lixo eletrônico.">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="_assets/_img/favicon.png">
+	<link rel="apple-touch-icon" href="_assets/_img/favicon_apple.png">
+	<meta name="theme-color" content="#009406">
+	<!-- scripts -->
+	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+	<link rel="stylesheet" href="_assets/_style/stylesheet.expanded.css">
+	<link rel="stylesheet" type="text/css" href="_assets/_style/carousel.css">
+	<!-- manifest / sw-->
+	<!-- <link rel="manifest" href="manifest.json"> -->
+	<!-- <script src="service-worker.js" type="text/javascript"></script> -->
+	<!-- A2HS -->
+	<!-- <link rel="stylesheet" type="text/css" href="_assets/_style/addtohomescreen.css"> -->
+	<style type="text/css">
+		.bg_begin{
+			background-image: url('_assets/_img/bg_01.png');
+		}
+		.bg_slide01{
+			background-image: url('_assets/_img/bg_slide01.jpg');
+		}
+		.bg_slide02{
+			background-image: url('_assets/_img/bg_slide02.jpg');
+		}
+		.bg_slide03{
+			background-image: url('_assets/_img/bg_slide03.jpg');
+		}
+		.bg_slide04{
+			background-image: url('_assets/_img/bg_slide04.jpg');
+		}
+		.bg_slide05{
+			background-image: url('_assets/_img/bg_slide05.jpg');
+		}
+		.none{
+			display: none;
+		}
+		.small_txt{
+			font-size: 12.5px;
+		}
+		.btn_go_right_txt{
+			left: 0;
+			margin-left: -3%;
+			padding-right: 3%;
+		}
+		#go_back{
+			right: 0;
+			margin-left: -3%;
+			padding-left: 3%;
+		}
+	</style>
+</head>
+<body class="no_margin bg_body_color noscroll">
+	<!-- begin -->
+	<div class="container_div noscroll" id="index_cont"> <!-- container div -->
+		<div class="bg_body bg_begin complete_height"> <!-- container background -->
+			<div class="bg_cover complete_height"> <!-- cover do container -->
+				<div class="title_light txt_center box_index click" id="begin_expl"> <!-- conteudo de elemento -->
+					<a class="carousel-control-prev btn_carousel">
+						<span class="carousel-control-prev-icon"></span>
+					</a>
+					<a class="carousel-control-next btn_carousel">
+						<span class="carousel-control-next-icon"></span>
+					</a>
+					<img src="_assets/_img/logo_branca.png" class="img_idnx"><br/>
+					<h2 class="margin_hor text_normal">
+							Lucre com seu <b> Lixo Eletrônico</b>.
+					</h2>
+					<div class="">
+							<button class="main_bt">COMECE AGORA</button>
+					</div>
+
+				</div>
+				<a href="login.html" class="btn_go_right_txt">LOGIN
+					<small class="small_txt"><p>criar conta</p></small>
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<!-- slider -->
+	<div class="container_div noscroll none" id="carousel"> <!-- container div -->
+		<div class="owl-carousel owl-theme"> <!-- container -->
+			<button class="none btn btn_back_indx_txt pos_abs" id="go_back">
+				VOLTAR
+				<small class="small_txt"><p>para o ínicio</p></small>
+			</button>
+			<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+				<!-- Indicators -->
+				<ol class="carousel-indicators" id="dot_carousel">
+				<li data-target="#0" data-slide-to="0" class="active"></li>
+				<li data-target="#1" data-slide-to="1"></li>
+				<li data-target="#2" data-slide-to="2"></li>
+				<li data-target="#3" data-slide-to="3"></li>
+			
+				</ol>
+				<!-- Wrapper for slides -->
+				<div class="carousel-inner">
+					<!-- 01 -->
+					<div class="bg_body bg_slide01 carousel-item">
+						<div class="bg_cover complete_height center_new"> <!-- cover do container / centraliza o cont do slide-->
+							<div class="title_light txt_center"> <!-- conteudo de elemento -->
+								<img src="_assets/_img/ICON01.png" class="img_ind_icon1"><br/>
+								<h2 class="margin_hor text_normal">
+<b>PASSO 01 </b>								</h2>
+								<p class="margin_hor text_normal">QUERO DESCARTAR CORRETAMENTE MEU LIXO ELETRÔNICO</p>
+							</div>
+						</div>
+					</div>
+					<!-- 02 -->
+					<div class="bg_body bg_slide02 carousel-item">
+						<div class="bg_cover complete_height center_new"> <!-- cover do container / centraliza o cont do slide-->
+							<div class="title_light txt_center"> <!-- conteudo de elemento -->
+								<img src="_assets/_img/ic_phonelink_24px.png" class="img_ind_icon"><br/>
+								<h2 class="margin_hor text_normal">
+									<b>PASSO 02</b>								</h2>
+								<p class="margin_hor text_normal">SEPARE EM SUA CASA OU NA SUA EMPRESA APARELHOS DE TELEFONIA E INFORMÁTICA
+									</p>
+							</div>
+						</div>
+					</div>
+					<!-- 03 -->
+					<div class="bg_body bg_slide03 carousel-item">
+						<div class="bg_cover complete_height center_new"> <!-- cover do container / centraliza o cont do slide-->
+							<div class="title_light txt_center"> <!-- conteudo de elemento -->
+								<img src="_assets/_img/ic_center_focus_weak_24px.png" class="img_ind_icon"><br/>
+								<h2 class="margin_hor text_normal">
+										<b>PASSO 03</b>								</h2>
+								<p class="margin_hor text_normal">FOTOGRAFE SUAS PEÇAS QUE ENCONTRAREMOS  O MELHOR PREÇO PARA VOCÊ</p>
+							</div>
+						</div>
+					</div>
+					<!-- 04 -->
+					<div class="bg_body bg_slide04 carousel-item lastitem">
+						<div class="bg_cover complete_height center_new"> <!-- cover do container / centraliza o cont do slide-->
+							<div class="title_light txt_center"> <!-- conteudo de elemento -->
+								<img src="_assets/_img/ic_device_hub_24px.png" class="img_ind_icon"><br/>
+								<h2 class="margin_hor text_normal">
+										<b>PASSO 04</b>								</h2>
+								<p class="margin_hor text_normal">VOCÊ IRÁ GANHAR COM O SEU LIXO ELETRÔNICO</p>
+							</div>
+						</div>
+					</div>
+					
+				<!-- Controls -->
+				<a class="carousel-control-prev none btn_carousel" href="#carouselExampleIndicators" role="button" data-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="sr-only">Previous</span>
+				</a>
+				<a class="carousel-control-next none btn_carousel" href="#carouselExampleIndicators" role="button" data-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="sr-only">Next</span>
+				</a>
+			</div>
+		</div>
+	</div>
+
+<!-- scripts -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" type="text/javascript"></script>
+<script src="_assets/_js/carousel.js" type="text/javascript"></script>
+<!-- <script src="_assets/_js/alert_personalizado.js" type="text/javascript" defer></script> -->
+<!-- A2HS -->
+<!-- <script type="text/javascript" src="_assets/_js/addtohomescreen.js"></script> -->
+<!-- <script type="text/javascript" src="_assets/_js/a2hs.js"></script> -->
+<script type="text/javascript">
+	$(document).ready(function () {
+	// ------------------------------------------------------------ VARIAVEIS ---------------------------------------------------------------
+
+		var begin = document.getElementById('begin_expl');
+		var back_index = document.getElementById('go_back');
+
+	// ------------------------------------------------------------ BUTOES ENTRAR ---------------------------------------------------------------
+
+		// ir pra a tela de explicacao/slide
+		begin.addEventListener('click', function carousel(){
+			$('#index_cont').hide().eq($('#carousel').fadeIn()); // hide/show a div do slide
+			$('#dot_carousel').css('display', 'flex'); // show dot slide carousel
+			$('#go_back').show(); // show btn back tela principal
+			// verifica se ja iniciou o carousel
+			if ( ! ($(".carousel-item").hasClass("active")) ) {
+				// ativar o slide
+				var $item = $('.carousel-item');
+				var $wHeight = $(window).height();
+				$item.eq(0).addClass('active');
+				$item.height($wHeight);
+				$('.btn_carousel:last').removeClass('none'); // remove class none do btn do carousel
+				// ajustar o slide/carousel a altura
+				$(window).on('resize', function (){
+					$wHeight = $(window).height();
+					$item.height($wHeight);
+				});
+			}
+		});
+
+	// ------------------------------------------------------------ BUTOES VOLTAR ---------------------------------------------------------------
+
+		// voltar p/ o inicio
+		back_index.addEventListener('click', function back(){
+			$('#carousel').hide().eq($('#index_cont').fadeIn()); // hide/show a div da tela principal
+			$('#dot_carousel').hide(); // hide dot slide carousel
+			if ( ! ($(".carousel-item").hasClass("active")) ) {
+				$('.btn_carousel').addClass('none'); // add a classe none no btn do carousel
+			}
+			$('#go_back').hide(); // hide btn back tela principal
+		});
+		// redirect. no ultimo slide clique na div para ir ao login/cadastro
+		$(".lastitem").click(function () {
+			window.location.href = "login.html";
+		});
+
+	// ------------------------------------------------------------ FUNCOES / PLUGINS ---------------------------------------------------------------
+
+		// options carousel/slide
+		$('.carousel').carousel({
+			interval: 100000 // intervalo de 100 segundos
+		});
+
+	}) // fim document.ready
+</script>

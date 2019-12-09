@@ -1,0 +1,16 @@
+{
+  "type": "service_account",
+  "project_id": "troia-tecnologia",
+  "private_key_id": "d435126db009e3e9be017ccb19e959b4b36b3426",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC9eTAdSH+b16Lc\n6uu0hL/Zcv0O+HiZaHgcFMtOTuMfyqpKHW2XHfLBGOlSQCcOmmLfNHne/ZL4KRSm\n5Ijjfk2ZdpWEPWAgviHy+FILsUaW9ZJ1MiCaieKwE+nJjK6ecYCIdERXtIPssLP7\n8nCOGa7oTYwCKQ/UPtqbeGZpzuAxfyBeADhPmd7HUdiAiNdrDfYYAzhukmi1IEKO\nT1dYVdsDb6wsLFSIybcEx3Qt/tm1dsrdRYg33XzMnZwegsp0BiRuQO/Vlh8WBeFr\nP+11oQfrHwyebI8Xkym/bwHGM6Jzodgsc9BiTlSw7gASF9UdDhav4tVecyrwKbZR\nm/7MD8ehAgMBAAECggEAKw2rTvAfHP6gAYJ5CjUi8eqE0Z7IqpU4O6tG8jWPOvVe\nggZTVWQG+fUq6Vdt+I3AuzbNnYuxlmWhTXX/G/BieiVdvqWCnxYNGUxvOjxvTZSi\nEbLRAUSlJ7zyoetvb03btsXylJpOYt1ZHH4fsM5ptdwPHRuO/vvESVEPtmm9fElh\n+XC0M54WYpQuyU3D+msKuDnEcBzSKVXjDAtAv8wCQQ7rUguXy8KmzAr7MNaAyAEn\n8amPIxgppodgPD1ITb1flkDLZD2Ww/xOvEqXa45tKNj42VGplVg4l43tGY8pptWG\n/tzh1wsBl4yea7tu1XauRcNCfTS4Axh1gYqsE9QcdQKBgQDyV2PxdJp4FBamiXND\n2NW2+Sx0L9rTJHIBn30XlIZm9ck+zNm2zwhnu+AZyn902NuW1x4qb8HgB/pnGsOj\nqUVLWuxito4HajvtRBW7PikoLJ0WscHsWSNAL4Nmp2XqTUhxDe27u9N78tFejMA/\nBUUSvEIesApCN7/1Te4U8nylXQKBgQDIJv6l9ScV/tJtuYPKOdZpaeTUgDn+IAQg\nrPnD+T5JDcn4nRGp50kg254T8JvSNAbHhPCLVIVW+HD61tgds7gP6oI2LbMu3UaC\ndveXdGHGoeVOiIsTQc/ijV8afbAF5RlHsBjQG52muJBv0QJ3HNoYO8A8sBl5vpkU\nCpDCn/yjFQKBgGEpsKSKf7RNOZej3FcDhQxLcwtSdIXbQuprq5fcsNZvDTTkpRWq\nhFAy/3LXwapzl/cuYKXbEPxltnvIO1BO+b1wwv4A+4j1ivliJuRf09iLqqACvSGp\ny3xckG6EB1Sdj8HkN8DhWbWEcXVbMWkTD9KnMEtlgXdzKr+Lcz1qy5bxAoGAJGBp\n8bGfm/DHP+fymuNuI5R6YWC4qYYaGfI2Jrb66f4WkhfB6RY/BTjE/yzAtTB9du+j\nZD9FSKw4pG49sxBByKq/ZadipIbU1MtYbm9ZgedUrLRGSoawiKVW/pKPVlLwCEZq\nDBCo029B2QCsqQdWYAckBiOfTbAlVC4jZyv6l40CgYEAtUqVC0wrF4c5StUSPRqZ\neaRXf81QwrXvFPz6vjRo9cATxWeNZdI2yG5pm97VwTMffwlBo5o4F8vTUrKP7Nzu\nCqH72Ekg9mUY+8wqSragmVZw7BO0H3YH3fPOQUo82BXzM72r2GqYoFKVl3Pr9ciX\nYPRLjRoBb7L1Np2r9JbjKl8=\n-----END PRIVATE KEY-----\n",
+  "client_email": "ilion-trash@troia-tecnologia.iam.gserviceaccount.com",
+  "client_id": "107135866575376513351",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/ilion-trash%40troia-tecnologia.iam.gserviceaccount.com"
+}
+
+/*
+API_key = AIzaSyCT1zOtXlYbnE93Skv8C4VQsYGryE6g-Qk
+*/

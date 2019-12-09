@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>byteTrash</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="description" content="description">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="">
+	<link rel="apple-touch-icon" href="">
+	<meta name="theme-color" content="#ffffff">
+	<!-- scripts -->
+	<!-- manifest / sw-->
+	<style type="text/css">
+		body{
+			margin:0;
+			padding: 0;
+			overflow-y: hidden;
+			overflow-x: hidden;
+		}
+		#comimg{
+		    width: 79.6%;
+		    margin-left: auto;
+		    margin-right: auto;
+		    position: relative;
+		}
+		#comimg > img{
+		    width: 100%;
+		    height: auto;
+		}
+		label{
+			width: 100%;
+			height: 100px;
+			text-align: center;
+			font-family: arial, sans-serif;
+			font-size: 23px;
+			color: white;
+			background-color: #ccc;
+			border-radius: 20px;
+		}
+		input{
+			height: 50px;
+		}
+		.inputs{
+			display: flex;
+		}
+		.result{
+			bottom: 0;
+			position: absolute;
+			width: 100%;
+			text-align: center;
+			font-family: arial, sans-serif;
+			font-size: 23px;
+			color: white;
+			background-color: rgba(0,0,0,0.5);
+			text-transform: uppercase;
+			height: 70px;
+			overflow-y: scroll;
+		}
+		.local{
+			width: 100%;
+			height: auto;
+		}
+		.load{
+			display: none;
+			background-color: rgba(0,0,0,0.7);
+			width: 102%;
+			height: 102%;
+			position: fixed;
+			margin:0;
+			padding:0;
+		    text-align: center;
+		    font-family: arial, sans-serif;
+		    color: white;
+		    font-weight: 400;
+		    z-index: 10;
+		    padding-top: 80px;
+		}
+	</style>
+</head>
+<body>
+
+<div class="load" id="load">
+	<h1 style="margin-bottom: 1px">CARREGANDO...</h1>
+	<small>por favor, aguarde</small>
+</div>
+
+	<div class="inputs">
+		<label id="lb_btn">
+		  <p>CLICA AQUI PARA POR UMA FOTO</p>
+		<input type="file" capture="camera" accept="image/*" id="cameraInput" name="cameraInput" style="display:none;"/>
+		</label>
+	</div>
+
+<div id="comimg">
+	<img id="your_img_id"/>
+</div>
+
+	<div class="result" id="result">
+	</div>
+
+<!-- SCRIPT -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+		// var
+		btn = document.getElementById('btn');
+		// btn_pic = document.getElementById('btn_pic');
+		local = document.getElementById('local');
+		cont = document.getElementById('result');
+		var new_img64;
+		var scrollingElement = (document.cont || cont);
+		api_key = 'AIzaSyCT1zOtXlYbnE93Skv8C4VQsYGryE6g-Qk';
+		api_key2 = 'AIzaSyC-OKSpUvAAfVMdeJ-bDTzWKvF1C3aHg3I';
+
+		// // tira a foto do obj
+		// function take_pic(input) {
+
+		//     if (input.files && input.files[0]) {
+		//         var reader = new FileReader();
+		//         reader.onload = function (e) {
+		//             $('#local').attr('src', e.target.result);
+		//           	// alert('foto: ' + e.target.result);
+		// 	        reader.readAsDataURL(input.files[0]);
+
+		// 			// var url = 'https://vision.googleapis.com/v1/images:annotate?alt=json&key='+api_key; // url para a api
+		// 			// // obj
+		// 			// var requests = {
+		// 			// 	image : { content : e.target.result },
+		// 			// 	features : { type : "LABEL_DETECTION", maxResults : 3 }
+		// 			// };
+		// 			// var payload = { requests };
+		// 			// // inicia a chamada para a api, enviando os parametros
+		// 			// send_vision(url, payload);
+		// 			// // appendobj( cont, 'cliquei p tirar foto' );
+		// 		}
+		// 	}
+		// }
+
+		// funcao precisa ser async, para fazer a requisicao
+		async function send_vision(url, payload, image64) {
+			// appendobj( cont, 'vai enviar' );
+			myHeaders = new Headers({
+				"Content-Type": "application/json"
+			});
+			// faz a requisicao com a api, via ajax
+			$.ajax({
+				type: "POST",
+				beforeSend: function(request) {
+					request.setRequestHeader("Content-Type", "application/json");
+					// appendobj( cont, 'add header' );
+				},
+				url: url,
+				dataType: 'json',
+				data: JSON.stringify(payload),
+				processData: false,
+				success: function(result) {
+					// appendobj( cont, 'chegou' );
+					num = result.responses[0].labelAnnotations;
+					for (var i = 0; i < num.length; i++) {
+						nameobj = num[i].description;
+						// rola a div para o final
+						scroll_btm(cont);
+						// traduz
+						appendobj( cont, nameobj );
+						translate(nameobj, image64);
+					}
+				}
+			});
+		}
+
+		// busca a traducao
+		function translate(nameobj, image64) {
+			var url = 'https://translation.googleapis.com/language/translate/v2?key='+api_key2; // url para a api
+			// obj
+			var payload = {
+				q :  nameobj,
+				source :  'en' ,
+				target :  'pt' ,
+				format :  'text' 
+			};
+
+			// inicia a chamada para a api, enviando os parametros
+			call_trans(url, payload, image64);
+			// appendobj( cont, 'cliquei p tirar foto' );
+		}
+
+		// funcao precisa ser async, para fazer a requisicao ao translate
+		async function call_trans(url, payload, image64) {
+			// appendobj( cont, 'vai enviar' );
+			myHeaders = new Headers({
+				"Content-Type": "application/json"
+			});
+			// faz a requisicao com a api, via ajax
+			$.ajax({
+				type: "POST",
+				beforeSend: function(request) {
+					request.setRequestHeader("Content-Type", "application/json");
+					// appendobj( cont, 'add header' );
+				},
+				url: url,
+				dataType: 'json',
+				data: JSON.stringify(payload),
+				processData: false,
+				success: function(result) {
+					// appendobj( cont, 'chegou' );
+					num = result.data.translations;
+					for (var i = 0; i < num.length; i++) {
+						nameobj = num[i].translatedText;
+						// rola a div para o final
+						// scroll_btm(cont);
+						// traduz
+						appendobj( cont, nameobj );
+						// switch (nameobj) {
+						// 	case 'netbook':
+						// 	case 'computador portátil':
+						// 		up_img('3', image64, 'note');
+						// 	break;
+						// 	case 'gadget':
+						// 	case 'celular':
+						// 		up_img('1', image64, 'cel');
+						// 	break;
+						// 	case 'tecnologia':
+						// 	case 'placa-mãe':
+						// 		up_img('2', image64, 'placa');
+						// 	break;
+						// }
+					}
+				},
+				complete: function() {
+					// $('#load').hide();
+				}
+			});
+		}
+
+		function up_img(id, img, name) {
+			$.ajax({
+				url: '_assets/_php/up_img.php',
+				// Aqui você deve preencher o tipo de dados que será lido,
+				type:'POST',
+				data: ({
+					img: img,
+					id: id
+				}),
+				// SUCESS é referente a função que será executada caso
+				// ele consiga ler a fonte de dados com sucesso.
+				// O parâmetro dentro da função se refere ao nome da variável
+				// que você vai dar para ler esse objeto.
+				success: function(resposta){
+					// Confere se houve erro e o imprime
+					if(resposta == "ERRO"){
+						alert('imagem nao aceita, tente novamente');
+					}else{
+						window.location.href = "produto.php?name="+name+"&id="+id;
+						// alert(resposta)
+					}
+				}
+			});
+		}
+
+		// add o objeto ao txt
+		function appendobj(cont, obj) {
+			var element = document.createElement('p');
+			element.setAttribute('id', 'bs64');
+			element.innerHTML = obj;
+			cont.appendChild(element);
+		}
+
+		function scroll_btm(cont) {
+			$(scrollingElement).animate({
+				scrollTop: cont.scrollHeight
+			}, 500);
+		}
+
+		function readURL(input) {
+		    if (input.files && input.files[0]) {
+		        var reader = new FileReader();
+		        reader.onload = function (e) {
+					new_img64 = e.target.result;
+					// preview
+		            $('#your_img_id').attr('src', new_img64);
+		          	// alert('foto: ' + e.target.result);
+		          	// $('#load').show();
+					go_api(new_img64);
+		        }
+		        reader.readAsDataURL(input.files[0]);
+
+		    }
+		}
+
+		function go_api(image64) {
+			var image64 = image64.replace('data:image/png;base64,', ''); // retira o base64
+			var image64 = image64.replace('data:image/jpeg;base64,', ''); // retira o base64
+			var image64 = image64.replace('data:image/jpg;base64,', ''); // retira o base64
+			var url = 'https://vision.googleapis.com/v1/images:annotate?alt=json&key='+api_key; // url para a api
+			// obj
+			var requests = {
+				image : { content : image64 },
+				features : { type : "LABEL_DETECTION", maxResults : 3 }
+			};
+			var payload = { requests };
+			// inicia a chamada para a api, enviando os parametros
+			send_vision(url, payload, image64);
+			// appendobj( cont, 'cliquei p tirar foto' );
+		}
+
+
+		$("#cameraInput").change(function(){
+		    readURL(this);
+		});
+
+});
+</script>
