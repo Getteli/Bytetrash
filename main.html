@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
     // charset
     header('Content-Type: text/html; charset=utf-8');
     setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
@@ -19,7 +19,7 @@
     $img = $linha['img_trash'] ?? '';
     $value = 120 + ($linha['value'] ?? 0);
 
-?>
+?> -->
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -88,7 +88,7 @@ position: fixed;
           <h3>Olá Douglas</h3>  
       </div>
       <div class="total">
-          <p><?php echo $value ?></p>
+          <p>120</p>
       </div>
     </header>
 
@@ -106,7 +106,7 @@ position: fixed;
                 <img style="max-width:70%; border-radius:4px 4px 0 0" src="<?php echo $img ?>" alt="">
                 <h3><?php echo $name ?></h3>
             </div>
-            <p class="pontos"><?php echo number_format(($linha['value'] ?? 0), 0, ',', '.'); ?></p>
+            <p class="pontos">120</p>
         </div>
         <?php } ?>
 
@@ -167,7 +167,7 @@ position: fixed;
                   </label>
                 </a>
 
-                <a href="produto.php" class="footer-link">
+                <a href="produto.html" class="footer-link">
                   <i class="fa fa-microchip"></i> <span class='footer-text'>Produtos</span>
                 </a>
                 <a href="certificado.pdf" target="_blank" class="footer-link">
