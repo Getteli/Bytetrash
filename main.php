@@ -3,20 +3,21 @@
     header('Content-Type: text/html; charset=utf-8');
     setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
     date_default_timezone_set('America/Sao_Paulo');
+
     // conexao com o bd
-    include_once('_assets/_php/conection.php');
+    // include_once('assets/php/conection.php');
 
-    $id = filter_input(INPUT_GET, 'id');
-    $name = filter_input(INPUT_GET, 'name');
+    $id = filter_input(INPUT_GET, 'id') ?? 1;
+    $name = filter_input(INPUT_GET, 'name') ?? 'Douglas';
 
-            $query = mysqli_query($conn, " SELECT 
-                img_trash, value
-                FROM prod_trash WHERE id_trash = '$id' ");
-            // pega a linha
-            $linha = mysqli_fetch_assoc($query);
+    // $query = mysqli_query($conn, " SELECT 
+    //     img_trash, value
+    //     FROM prod_trash WHERE id_trash = '$id' ");
+    // // pega a linha
+    // $linha = mysqli_fetch_assoc($query);
 
-            $img = $linha['img_trash'];
-            $value = 120 + $linha['value'];
+    $img = $linha['img_trash'] ?? '';
+    $value = 120 + ($linha['value'] ?? 0);
 
 ?>
 <!DOCTYPE html>
@@ -29,18 +30,18 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="description" content="TechTrash, lucre com seu lixo eletrônico.">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="icon" type="image/png" href="_assets/_img/favicon.png">
-	<link rel="apple-touch-icon" href="_assets/_img/favicon_apple.png">
+	<link rel="icon" type="image/png" href="assets/img/favicon.png">
+	<link rel="apple-touch-icon" href="assets/img/favicon_apple.png">
 	<meta name="theme-color" content="#008265">
 	<!-- scripts -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="_assets/_style/stylesheet.expanded.css">
-	<link rel="stylesheet" type="text/css" href="_assets/_style/carousel.css">
+	<link rel="stylesheet" href="assets/style/stylesheet.expanded.css">
+	<link rel="stylesheet" type="text/css" href="assets/style/carousel.css">
 	<!-- manifest / sw-->
 	<!-- <link rel="manifest" href="manifest.json"> -->
 	<!-- <script src="service-worker.js" type="text/javascript"></script> -->
 	<!-- A2HS -->
-	<!-- <link rel="stylesheet" type="text/css" href="_assets/_style/addtohomescreen.css"> -->
+	<!-- <link rel="stylesheet" type="text/css" href="assets/style/addtohomescreen.css"> -->
 	<style type="text/css">
 	.menu_b{
 position: fixed;
@@ -52,12 +53,12 @@ position: fixed;
     max-width: 170px;
 	}
 	.barra-fixa{
-		width: 103%;
+		width: 100%;
 	}
 		.load{
 			display: none;
 			background-color: rgba(0,0,0,0.7);
-			width: 102%;
+			width: 100%;
 			height: 103%;
 			position: fixed;
 			margin: -10px;
@@ -74,7 +75,7 @@ position: fixed;
 <body class="no_margin bg_body_color2 ">
 
 <div class="load" id="load">
-    <img src="_assets/_img/gif.gif" style="width: 190px;">
+    <img src="assets/img/gif.gif" style="width: 190px;">
 	<h1 style="margin-bottom: 1px">PROCESSANDO...</h1>
 	<small>por favor, aguarde</small>
 </div>
@@ -105,13 +106,13 @@ position: fixed;
                 <img style="max-width:70%; border-radius:4px 4px 0 0" src="<?php echo $img ?>" alt="">
                 <h3><?php echo $name ?></h3>
             </div>
-            <p class="pontos"><?php echo number_format($linha['value'], 0, ',', '.'); ?></p>
+            <p class="pontos"><?php echo number_format(($linha['value'] ?? 0), 0, ',', '.'); ?></p>
         </div>
         <?php } ?>
 
         <div class="produto">
             <div class="produto_content">
-                <img style="max-width:100%; border-radius:4px 4px 0 0" src="_assets/_img/prod01.jpg" alt="">
+                <img style="max-width:100%; border-radius:4px 4px 0 0" src="assets/img/prod01.jpg" alt="">
                 <h3>Estabilizador</h3>
             </div>
             <p class="pontos">10</p>
@@ -119,7 +120,7 @@ position: fixed;
 
         <div class="produto">
             <div class="produto_content">
-                <img style="max-width:100%; border-radius:4px 4px 0 0" src="_assets/_img/prod01.jpg" alt="">
+                <img style="max-width:100%; border-radius:4px 4px 0 0" src="assets/img/prod01.jpg" alt="">
                 <h3>Estabilizador</h3>
             </div>
             <p class="pontos">10</p>
@@ -127,7 +128,7 @@ position: fixed;
 
         <div class="produto">
                 <div class="produto_content">
-                    <img style="max-width:100%; border-radius:4px 4px 0 0" src="_assets/_img/prod01.jpg" alt="">
+                    <img style="max-width:100%; border-radius:4px 4px 0 0" src="assets/img/prod01.jpg" alt="">
                     <h3>Estabilizador</h3>
                 </div>
                 <p class="pontos">10</p>
@@ -135,7 +136,7 @@ position: fixed;
     
             <div class="produto">
                 <div class="produto_content">
-                    <img style="max-width:100%; border-radius:4px 4px 0 0" src="_assets/_img/prod01.jpg" alt="">
+                    <img style="max-width:100%; border-radius:4px 4px 0 0" src="assets/img/prod01.jpg" alt="">
                     <h3>Estabilizador</h3>
                 </div>
                 <p class="pontos">10</p>
@@ -143,14 +144,14 @@ position: fixed;
 
             <div class="produto">
                     <div class="produto_content">
-                        <img style="max-width:100%; border-radius:4px 4px 0 0" src="_assets/_img/prod01.jpg" alt="">
+                        <img style="max-width:100%; border-radius:4px 4px 0 0" src="assets/img/prod01.jpg" alt="">
                         <h3>Estabilizador</h3>
                     </div>
                     <p class="pontos">10</p>
                 </div>
                 <div class="produto">
                         <div class="produto_content">
-                            <img style="max-width:100%; border-radius:4px 4px 0 0" src="_assets/_img/prod01.jpg" alt="">
+                            <img style="max-width:100%; border-radius:4px 4px 0 0" src="assets/img/prod01.jpg" alt="">
                             <h3>Estabilizador</h3>
                         </div>
                         <p class="pontos">10</p>
@@ -161,15 +162,15 @@ position: fixed;
         		
                 <a href="#" class="footer-link">
                   <label>
-                  <i class="fa fa-picture-o"></i> <span class='footer-text'>Capturar</span>
+                  <i class="fa fa-picture-o"></i> <span class='footer-text'>Capturar (teste no celular)</span>
                   <input type="file" capture="camera" accept="image/*" class="cameraInput" name="cameraInput" style="display:none;"/>
                   </label>
                 </a>
 
-                <a href="#" class="footer-link">
+                <a href="produto.php" class="footer-link">
                   <i class="fa fa-microchip"></i> <span class='footer-text'>Produtos</span>
                 </a>
-                <a href="http://54.233.140.55/bytetrash/certificadp.pdf" target="_blank" class="footer-link">
+                <a href="certificado.pdf" target="_blank" class="footer-link">
                         <i class="fa fa-file-text"></i> <span class='footer-text'>Certificado</span>
                 </a>
                 <a href="#" class="footer-link">
@@ -180,4 +181,4 @@ position: fixed;
 
 <!-- SCRIPT -->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" type="text/javascript"></script>
-<script src="_assets/_js/javascript.js" type="text/javascript"></script>
+<script src="assets/js/javascript.js" type="text/javascript"></script>

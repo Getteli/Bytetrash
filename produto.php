@@ -4,48 +4,48 @@
 	setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
 	date_default_timezone_set('America/Sao_Paulo');
 	// conexao com o bd
-	include_once('_assets/_php/conection.php');
+	// include_once('assets/php/conection.php');
 
-	$name = filter_input(INPUT_GET, 'name');
-	$id = filter_input(INPUT_GET, 'id');
+	$name = filter_input(INPUT_GET, 'name') ?? 'placa';
+	$id = filter_input(INPUT_GET, 'id') ?? 1;
 
 
 	switch ($name) {
 		case 'note':
 			// query a ser pesquisada
-			$query = mysqli_query($conn, " SELECT 
-				img_trash, value
-				FROM prod_trash WHERE id_trash = '$id' ");
-			// pega a linha
-			$linha = mysqli_fetch_assoc($query);
+			// $query = mysqli_query($conn, " SELECT 
+			// 	img_trash, value
+			// 	FROM prod_trash WHERE id_trash = '$id' ");
+			// // pega a linha
+			// $linha = mysqli_fetch_assoc($query);
 
-			$img = $linha['img_trash'];
+			$img = $linha['img_trash'] ?? 'assets/img/trash/15413421005bdf0394714dd.jpg';
 			$nome = 'Notebook';
-			$value = $linha['value'];
+			$value = $linha['value'] ?? 120;
 			break;
 		case 'cel':
 			// query a ser pesquisada
-			$query = mysqli_query($conn, " SELECT 
-				img_trash, value
-				FROM prod_trash WHERE id_trash = '$id' ");
-			// pega a linha
-			$linha = mysqli_fetch_assoc($query);
+			// $query = mysqli_query($conn, " SELECT 
+			// 	img_trash, value
+			// 	FROM prod_trash WHERE id_trash = '$id' ");
+			// // pega a linha
+			// $linha = mysqli_fetch_assoc($query);
 
-			$img = $linha['img_trash'];
+			$img = $linha['img_trash'] ?? 'assets/img/trash/15413421005bdf0394714dd.jpg';
 			$nome = 'Celular';
-			$value = $linha['value'];
+			$value = $linha['value'] ?? 100;
 			break;
 		case 'placa':
 			// query a ser pesquisada
-			$query = mysqli_query($conn, " SELECT 
-				img_trash, value
-				FROM prod_trash WHERE id_trash = '$id' ");
-			// pega a linha
-			$linha = mysqli_fetch_assoc($query);
+			// $query = mysqli_query($conn, " SELECT 
+			// 	img_trash, value
+			// 	FROM prod_trash WHERE id_trash = '$id' ");
+			// // pega a linha
+			// $linha = mysqli_fetch_assoc($query);
 
-			$img = $linha['img_trash'];
+			$img = $linha['img_trash'] ?? 'assets/img/trash/15413421005bdf0394714dd.jpg';
 			$nome = 'Placa-mãe';
-			$value = $linha['value'];
+			$value = $linha['value'] ?? 75;
 			break;
 		default:
 			break;
@@ -63,16 +63,24 @@
 	<link rel="icon" type="image/png" href="">
 	<link rel="apple-touch-icon" href="">
 	<meta name="theme-color" content="#009406">
-	<link rel="stylesheet" href="_assets/_style/stylesheet.expanded.css">
+	<link rel="stylesheet" href="assets/style/stylesheet.expanded.css">
 	<style type="text/css">
 		*{
 			font-family: arial, sans-serif;
 			margin:0;
 			padding:0;
 		}
+		body *
+		{
+			width: 300px !important;
+		}
 		body{
-			width: 103%!important;
-			overflow-x: hidden;	
+			overflow-x: hidden;
+			margin: 0 auto;
+			overflow-x: hidden;
+			display: flex;
+			justify-content: center;
+			align-items: center;
 		}
 		h1, h2{
 			text-align: center;
@@ -82,7 +90,7 @@
 		    height: 100px;
 		    position: fixed;
 		    z-index: 99;
-		    background-image: url(_assets/_img/top_bar.png);
+		    background-image: url(assets/img/top_bar.png);
 		    background-repeat: no-repeat;
 		    background-position: top;
 		    background-size: 100%;
@@ -118,23 +126,21 @@
 			margin: 20px 0;
 		}
 		.coin2{
-		    background-image: url(_assets/_img/coin2.png);
+		    background-image: url(assets/img/coin2.png);
 		    background-repeat: no-repeat;
 		    background-position: center;
-		    background-size: 50%;
 		    width: 100%;
 		    height: 100px;
-		    margin-bottom: 22px;
 		}
 		.coin2 > p{
 			text-align: center;
     		font-size: 28px;
     		color: #635e5e;
 		    padding-top: 37px;
-		    padding-left: 22px;
+		    padding-left: 10px;
 		}
 		.coin3{
-		    background-image: url(_assets/_img/coin2.png);
+		    background-image: url(assets/img/coin2.png);
 		    background-repeat: no-repeat;
 		    background-position: center 80px;
 		    background-size: 50%;
@@ -151,19 +157,17 @@
 		    padding-left: 22px;
 		}
 		.continue{
-		    background-image: url(_assets/_img/continue.png);
+		    background-image: url(assets/img/continue.png);
 		    background-repeat: no-repeat;
-		    /*background-position: center;*/
-		    background-position: 80px;
+		    background-position: center;
 		    background-size: 60%;
-		    width: 100%;
 		    height: 100px;
-		    /*margin-left: 12px;*/
+			margin: 0 auto;
 		    background-color: white;
 		    border: none;
 		}
 		.confirm{
-		    background-image: url(_assets/_img/confirmar.png);
+		    background-image: url(assets/img/confirmar.png);
 		    background-repeat: no-repeat;
 		    background-position: center;
 		    background-position: center;
@@ -216,7 +220,7 @@
 			display: flex;
 		}
 		.y{
-		    background-image: url(_assets/_img/sim.png);
+		    background-image: url(assets/img/sim.png);
 		    background-repeat: no-repeat;
 		    /*background-position: center;*/
 		    background-position: center;
@@ -228,7 +232,7 @@
 		    border: none;
 		}
 		.n{
-		    background-image: url(_assets/_img/nao.png);
+		    background-image: url(assets/img/nao.png);
 		    background-repeat: no-repeat;
 		    /*background-position: center;*/
 		    background-position: center;
@@ -254,6 +258,20 @@
 		    font-size: 14px;
 		    bottom: 0;
 		    position: absolute;
+		}
+		@media screen and (max-width: 700px)
+		{
+			body *
+			{
+				width: 500px !important;
+			}
+		}
+		@media screen and (max-width: 520px)
+		{
+			body *
+			{
+				width: 100% !important;
+			}
 		}
 	</style>
 </head>
@@ -316,7 +334,8 @@
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" type="text/javascript"></script>
 <script type="text/javascript">
 	$("#continue").click(function () {
-		$('#prod').hide().eq($('#choose').fadeIn()); // hide/show a div do slide
+		window.location.href = "main.php";
+	// 	$('#prod').hide().eq($('#choose').fadeIn()); // hide/show a div do slide
 	});
 	$("#btn_back").click(function () {
 		$('#choose').hide().eq($('#prod').fadeIn()); // hide/show a div do slide

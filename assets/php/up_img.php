@@ -66,14 +66,14 @@
 			$newName = uniqid ( time () ) . '.' . 'jpg';
 		}
 		// path para subir ao servidor
-		$path = '../_img/trash/' . $newName;
+		$path = '../img/trash/' . $newName;
 		// envia ao servidor
 		file_put_contents($path , $data);
 		// executa a funcao de redimensionar a imagem, enviando o caminho da imagem original ja enviada ao servidor, novo tamanho e o novo nome
 		$resize_img = resizeImg($path, 430, 630, $newName);
 		// name a ser enviado ao banco
-		$new_pic = str_replace('../_img/trash/', '', $path); // retira
-		$new_pic = '_assets/_img/trash/' . $new_pic; // add
+		$new_pic = str_replace('../img/trash/', '', $path); // retira
+		$new_pic = 'assets/img/trash/' . $new_pic; // add
 		if ($resize_img == true) {
 		return $new_pic; // retorna o caminho para enviar ao banco, a imagem é alterada pela funcao resizeImg, mas o caminho/nome permanece o mesmo
 		}else{
@@ -113,7 +113,7 @@
 		// Faz a interpolação da imagem base com a imagem original
 		imagecopyresampled($imagem_tmp, $imagem_original, 0, 0, 0, 0, $largura, $altura, $largura_antiga, $altura_antiga);
 		// Salva a nova imagem. Ao efetuar, pelo fato de terem o mesmo nome, e excluido a imagem original
-		$resultado = $funcao_salva_imagem($imagem_tmp, "../_img/trash/$nome");
+		$resultado = $funcao_salva_imagem($imagem_tmp, "../img/trash/$nome");
 		// Libera memoria
 		imagedestroy($imagem_original);
 		imagedestroy($imagem_tmp);
@@ -129,8 +129,8 @@
 	// excluir imagem
 	function delete_image($pic_before){
 		// altera o caminho pois do banco e diferente daqui para a imagem
-		$pic_before = str_replace('_assets/_img/trash/', '', $pic_before); // retira
-		$pic_before = '../_img/trash/' . $pic_before; // add
+		$pic_before = str_replace('assets/img/trash/', '', $pic_before); // retira
+		$pic_before = '../img/trash/' . $pic_before; // add
 		// se nao estiver vazio, se o arquivo existir, exclua a foto anterior
 		if ( !empty( $pic_before ) && file_exists( $pic_before ) ) {
 			// exclui
