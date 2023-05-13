@@ -4,12 +4,12 @@
     <b>Byte Trash</b>
 </h2>
 
-<p align="center">
-<a href="#"><img src="https://img.shields.io/badge/language-MySQL-%237175aa" alt="Language"></a>
+<p align="center"
     <a href="#"><img src="https://img.shields.io/badge/language-JS-%23f7df1e" alt="Language"></a>
-    <a href="#"><img src="https://img.shields.io/badge/language-PHP-%237175aa" alt="Language"></a>
-    <a href="#"><img src="https://img.shields.io/badge/lib-Jquery-%230868ab" alt="Lib"></a>
     <a href="#"><img src="https://img.shields.io/badge/api-vision-%2361b645" alt="Api"></a>
+    <a href="#"><img src="https://img.shields.io/badge/language-PHP-%237175aa" alt="Language"></a>
+    <a href="#"><img src="https://img.shields.io/badge/language-MySQL-%237175aa" alt="Language"></a>
+    <a href="#"><img src="https://img.shields.io/badge/lib-Jquery-%230868ab" alt="Lib"></a>
     <a href="#"><img src="https://img.shields.io/badge/license-MIT-green" alt="License"></a>
 </p>
 
